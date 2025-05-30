@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Resultado | Calculadora Sugar</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container resultado-page">
+        <header>
+            <h1>Seu Resultado</h1>
+            <p class="cidade-info">Análise para <span id="cidadeEstado"></span></p>
+        </header>
+
+        <main>
+            <!-- Tela de Análise -->
+            <div class="analise-screen">
+                <div class="analise-icon spinner-icon">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="analise-message">Analisando seu perfil...</div>
+                <div class="analise-progress">
+                    <div class="analise-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Grid de Resultados -->
+            <div class="resultados-grid">
+                <!-- Bebaby.app Card -->
+                <div class="platform-card recommended">
+                    <div class="platform-header">
+                        <h3 class="platform-name">Bebaby.app</h3>
+                        <span class="platform-badge badge-recommended">
+                            <i class="fas fa-crown"></i> Mais Recomendado
+                        </span>
+                    </div>
+                    <div class="platform-rating">
+                        <span class="rating-stars">⭐</span>
+                        <span class="rating-value">9.8</span>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-wallet stat-icon"></i>
+                            <span class="stat-value">Grátis para entrar</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <span class="stat-value">1 dia até o primeiro encontro</span>
+                        </div>
+                    </div>
+                    <div class="potential-values">
+                        <h4 class="potential-title">Potencial Mensal</h4>
+                        <div class="potential-range"></div>
+                        <div class="potential-average"></div>
+                    </div>
+                    <a href="https://www.bebaby.app" target="_blank" rel="noopener noreferrer" class="platform-cta">
+                        Criar Conta Grátis <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Meu Patrocínio Card -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <h3 class="platform-name">Meu Patrocínio</h3>
+                        <span class="platform-badge">Premium</span>
+                    </div>
+                    <div class="platform-rating">
+                        <span class="rating-stars">⭐</span>
+                        <span class="rating-value">8.0</span>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-wallet stat-icon"></i>
+                            <span class="stat-value">R$ 249,00 para entrar</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <span class="stat-value">5 dias até o primeiro encontro</span>
+                        </div>
+                    </div>
+                    <div class="potential-values">
+                        <h4 class="potential-title">Potencial Mensal</h4>
+                        <div class="potential-range"></div>
+                        <div class="potential-average"></div>
+                    </div>
+                    <a href="https://www.meupatrocinio.com" target="_blank" rel="noopener noreferrer" class="platform-cta">
+                        Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Meu Namoro Exclusivo Card -->
+                <div class="platform-card new">
+                    <div class="platform-header">
+                        <h3 class="platform-name">Meu Namoro Exclusivo</h3>
+                        <span class="platform-badge badge-new">
+                            <i class="fas fa-sparkles"></i> Novo no Brasil
+                        </span>
+                    </div>
+                    <div class="platform-rating">
+                        <span class="rating-stars">⭐</span>
+                        <span class="rating-value">8.8</span>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-wallet stat-icon"></i>
+                            <span class="stat-value">Grátis para entrar</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <span class="stat-value">1,5 dias até o primeiro encontro</span>
+                        </div>
+                    </div>
+                    <div class="potential-values">
+                        <h4 class="potential-title">Potencial Mensal</h4>
+                        <div class="potential-range"></div>
+                        <div class="potential-average"></div>
+                    </div>
+                    <a href="https://www.meunamoroexclusivo.com.br" target="_blank" rel="noopener noreferrer" class="platform-cta">
+                        Criar Conta Grátis <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Universo Sugar Card -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <h3 class="platform-name">Universo Sugar</h3>
+                    </div>
+                    <div class="platform-rating">
+                        <span class="rating-stars">⭐</span>
+                        <span class="rating-value">7.0</span>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-wallet stat-icon"></i>
+                            <span class="stat-value">R$ 199,99 para entrar</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <span class="stat-value">7 dias até o primeiro encontro</span>
+                        </div>
+                    </div>
+                    <div class="potential-values">
+                        <h4 class="potential-title">Potencial Mensal</h4>
+                        <div class="potential-range"></div>
+                        <div class="potential-average"></div>
+                    </div>
+                    <a href="https://www.universosugar.com.br" target="_blank" rel="noopener noreferrer" class="platform-cta">
+                        Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Meu Rubi Card -->
+                <div class="platform-card">
+                    <div class="platform-header">
+                        <h3 class="platform-name">Meu Rubi</h3>
+                    </div>
+                    <div class="platform-rating">
+                        <span class="rating-stars">⭐</span>
+                        <span class="rating-value">6.0</span>
+                    </div>
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-wallet stat-icon"></i>
+                            <span class="stat-value">R$ 189,99 para entrar</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock stat-icon"></i>
+                            <span class="stat-value">8 dias até o primeiro encontro</span>
+                        </div>
+                    </div>
+                    <div class="potential-values">
+                        <h4 class="potential-title">Potencial Mensal</h4>
+                        <div class="potential-range"></div>
+                        <div class="potential-average"></div>
+                    </div>
+                    <a href="https://www.meurubi.com.br" target="_blank" rel="noopener noreferrer" class="platform-cta">
+                        Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="action-buttons">
+                <a href="index.html" class="btn-secondary">
+                    <i class="fas fa-calculator"></i> Nova Simulação
+                </a>
+                <button id="compartilharWhatsApp" class="btn-primary">
+                    <i class="fab fa-whatsapp"></i> Compartilhar Resultado
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="resultado.js" type="module"></script>
+</body>
+</html> 

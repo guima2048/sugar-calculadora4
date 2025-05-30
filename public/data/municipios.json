@@ -1,0 +1,52 @@
+{
+    "RO": [
+        {"nome": "Alta Floresta D'Oeste", "populacao": 50000, "tipo": "pequena"},
+        {"nome": "Ariquemes", "populacao": 50000, "tipo": "pequena"},
+        {"nome": "Cabixi", "populacao": 50000, "tipo": "pequena"},
+        {"nome": "Cacoal", "populacao": 50000, "tipo": "pequena"}
+    ],
+    "SP": [
+        {"nome": "São Paulo", "populacao": 12000000, "tipo": "grande"},
+        {"nome": "Campinas", "populacao": 1200000, "tipo": "grande"},
+        {"nome": "Santos", "populacao": 433000, "tipo": "media"},
+        {"nome": "Guarulhos", "populacao": 1400000, "tipo": "grande"},
+        {"nome": "São Bernardo do Campo", "populacao": 850000, "tipo": "grande"},
+        {"nome": "Santo André", "populacao": 720000, "tipo": "grande"},
+        {"nome": "Osasco", "populacao": 700000, "tipo": "grande"},
+        {"nome": "Ribeirão Preto", "populacao": 700000, "tipo": "grande"}
+    ],
+    "RJ": [
+        {"nome": "Rio de Janeiro", "populacao": 6700000, "tipo": "grande"},
+        {"nome": "Niterói", "populacao": 515000, "tipo": "media"},
+        {"nome": "São Gonçalo", "populacao": 1100000, "tipo": "grande"},
+        {"nome": "Duque de Caxias", "populacao": 920000, "tipo": "grande"},
+        {"nome": "Nova Iguaçu", "populacao": 820000, "tipo": "grande"},
+        {"nome": "Belford Roxo", "populacao": 510000, "tipo": "media"}
+    ],
+    "MG": [
+        {"nome": "Belo Horizonte", "populacao": 2500000, "tipo": "grande"},
+        {"nome": "Uberlândia", "populacao": 700000, "tipo": "grande"},
+        {"nome": "Contagem", "populacao": 660000, "tipo": "grande"},
+        {"nome": "Juiz de Fora", "populacao": 570000, "tipo": "media"}
+    ],
+    "BA": [
+        {"nome": "Salvador", "populacao": 2900000, "tipo": "grande"},
+        {"nome": "Feira de Santana", "populacao": 620000, "tipo": "grande"},
+        {"nome": "Vitória da Conquista", "populacao": 340000, "tipo": "media"}
+    ],
+    "PR": [
+        {"nome": "Curitiba", "populacao": 1900000, "tipo": "grande"},
+        {"nome": "Londrina", "populacao": 570000, "tipo": "media"},
+        {"nome": "Maringá", "populacao": 430000, "tipo": "media"}
+    ],
+    "RS": [
+        {"nome": "Porto Alegre", "populacao": 1500000, "tipo": "grande"},
+        {"nome": "Caxias do Sul", "populacao": 510000, "tipo": "media"},
+        {"nome": "Canoas", "populacao": 350000, "tipo": "media"}
+    ],
+    "DF": [
+        {"nome": "Brasília", "populacao": 3000000, "tipo": "grande"},
+        {"nome": "Ceilândia", "populacao": 432000, "tipo": "media"},
+        {"nome": "Taguatinga", "populacao": 361000, "tipo": "media"}
+    ]
+} 
