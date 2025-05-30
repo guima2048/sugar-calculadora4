@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Sugar | Descubra seu valor</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Debug Script -->
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            return false;
+        };
+    </script>
+</head>
+<body>
+    <!-- Intro Animation -->
+    <div class="intro-overlay">
+        <div class="intro-content">
+            <div class="intro-line"></div>
+            <h1 class="intro-title">Calculadora Sugar</h1>
+            <p class="intro-subtitle">Descubra seu valor</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <header>
+            <h1>Calculadora Sugar</h1>
+            <p>Descubra seu potencial de ganhos mensais como sugar baby</p>
+        </header>
+
+        <main>
+            <form id="calculadoraSugar">
+                <!-- Seção 1: Localização -->
+                <section class="form-section" id="localizacao">
+                    <h2><i class="fas fa-map-marker-alt"></i> Localização</h2>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select id="estado" required>
+                            <option value="">Selecione um estado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" placeholder="Digite sua cidade" required>
+                        <div id="cidadesList" class="autocomplete-items"></div>
+                    </div>
+                    <div id="cidadeAlerta" class="alerta" style="display: none;"></div>
+                </section>
+
+                <!-- Seção 2: Perguntas Básicas -->
+                <section class="form-section" id="perguntasBasicas">
+                    <h2><i class="fas fa-user-circle"></i> Informações Básicas</h2>
+                    <div class="form-group">
+                        <label for="idade">Idade</label>
+                        <input type="number" id="idade" name="idade" min="18" max="60" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Disponibilidade para Viagens</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="viagem" value="sim" required> Sim</label>
+                            <label><input type="radio" name="viagem" value="as_vezes"> Às vezes</label>
+                            <label><input type="radio" name="viagem" value="nao"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cuidados com Aparência</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="aparencia" value="sim" required> Sim</label>
+                            <label><input type="radio" name="aparencia" value="medio"> Mediano</label>
+                            <label><input type="radio" name="aparencia" value="nao"> Não muito</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Orientação Sexual</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="orientacao" value="bissexual" required> Bissexual</label>
+                            <label><input type="radio" name="orientacao" value="pansexual"> Pansexual</label>
+                            <label><input type="radio" name="orientacao" value="hetero"> Hetero</label>
+                            <label><input type="radio" name="orientacao" value="lesbica"> Lésbica</label>
+                            <label><input type="radio" name="orientacao" value="assexual"> Assexual</label>
+                            <label><input type="radio" name="orientacao" value="nao_informado"> Não informado</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nível de Ambição</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="ambicao" value="muito" required> Muito</label>
+                            <label><input type="radio" name="ambicao" value="medio"> Mediana</label>
+                            <label><input type="radio" name="ambicao" value="pouco"> Pouco</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Botão para mostrar perguntas avançadas -->
+                <button type="button" id="mostrarAvancado" class="btn-secondary">
+                    <i class="fas fa-plus-circle"></i> Responder mais perguntas para estimativa mais precisa
+                </button>
+
+                <!-- Seção 3: Perguntas Avançadas -->
+                <section class="form-section" id="perguntasAvancadas" style="display: none;">
+                    <h2><i class="fas fa-star"></i> Informações Avançadas</h2>
+                    
+                    <div class="form-group">
+                        <label>Nível de Escolaridade</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="estudo" value="superior"> Superior</label>
+                            <label><input type="radio" name="estudo" value="medio"> Médio</label>
+                            <label><input type="radio" name="estudo" value="nao"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Situação Profissional</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="trabalho" value="sim"> Sim</label>
+                            <label><input type="radio" name="trabalho" value="parcial"> Parcial</label>
+                            <label><input type="radio" name="trabalho" value="nao"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Filhos</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="filhos" value="nao"> Não</label>
+                            <label><input type="radio" name="filhos" value="1"> 1</label>
+                            <label><input type="radio" name="filhos" value="2"> 2+</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hábito de Fumar</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="fuma" value="nao"> Não</label>
+                            <label><input type="radio" name="fuma" value="social"> Socialmente</label>
+                            <label><input type="radio" name="fuma" value="sim"> Sim</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Consumo de Bebidas</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="bebe" value="social"> Socialmente</label>
+                            <label><input type="radio" name="bebe" value="nao"> Não</label>
+                            <label><input type="radio" name="bebe" value="muito"> Muito</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Presença em Redes Sociais</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="fotos" value="sempre"> Sempre</label>
+                            <label><input type="radio" name="fotos" value="as_vezes"> Às vezes</label>
+                            <label><input type="radio" name="fotos" value="nunca"> Nunca</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nível de Carisma</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="carisma" value="sim"> Alto</label>
+                            <label><input type="radio" name="carisma" value="medio"> Médio</label>
+                            <label><input type="radio" name="carisma" value="nao"> Baixo</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Idiomas</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="idioma" value="fluente"> Fluente</label>
+                            <label><input type="radio" name="idioma" value="basico"> Básico</label>
+                            <label><input type="radio" name="idioma" value="nao"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferência de Relacionamento</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="distancia" value="sim"> À distância</label>
+                            <label><input type="radio" name="distancia" value="talvez"> Talvez</label>
+                            <label><input type="radio" name="distancia" value="nao"> Presencial</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantidade de Relacionamentos</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="quantidade" value="varios"> Vários</label>
+                            <label><input type="radio" name="quantidade" value="um"> Um</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Experiência Prévia</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="experiencia" value="sim"> Sim</label>
+                            <label><input type="radio" name="experiencia" value="nao"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tatuagens</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="tatuagem" value="sim"> Sim</label>
+                            <label><input type="radio" name="tatuagem" value="nao"> Não</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Botão de cálculo -->
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-calculator"></i> Calcular Potencial
+                </button>
+            </form>
+
+            <!-- Seção de Resultado -->
+            <section id="resultado" style="display: none;">
+                <!-- Tela de Análise -->
+                <div class="analise-screen">
+                    <div class="analise-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="analise-message">Analisando seu perfil...</div>
+                    <div class="analise-progress">
+                        <div class="analise-progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Grid de Resultados -->
+                <div class="resultados-grid">
+                    <!-- Bebaby Card -->
+                    <div class="platform-card recommended">
+                        <div class="platform-header">
+                            <h3 class="platform-name">Bebaby</h3>
+                            <span class="platform-badge badge-recommended">
+                                <i class="fas fa-crown"></i> Mais Recomendado
+                            </span>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="rating-stars">⭐</span>
+                            <span class="rating-value">9.8</span>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-wallet stat-icon"></i>
+                                <span class="stat-value">Grátis para entrar</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <span class="stat-value">1 dia até o primeiro encontro</span>
+                            </div>
+                        </div>
+                        <div class="potential-values">
+                            <h4 class="potential-title">Potencial Mensal</h4>
+                            <div class="potential-range"></div>
+                            <div class="potential-average"></div>
+                        </div>
+                        <a href="#" class="platform-cta">
+                            Criar Conta Grátis <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Meu Patrocínio Card -->
+                    <div class="platform-card">
+                        <div class="platform-header">
+                            <h3 class="platform-name">Meu Patrocínio</h3>
+                            <span class="platform-badge">Premium</span>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="rating-stars">⭐</span>
+                            <span class="rating-value">8.0</span>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-wallet stat-icon"></i>
+                                <span class="stat-value">R$ 249,00 para entrar</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <span class="stat-value">5 dias até o primeiro encontro</span>
+                            </div>
+                        </div>
+                        <div class="potential-values">
+                            <h4 class="potential-title">Potencial Mensal</h4>
+                            <div class="potential-range"></div>
+                            <div class="potential-average"></div>
+                        </div>
+                        <a href="#" class="platform-cta">
+                            Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Meu Namoro Exclusivo Card -->
+                    <div class="platform-card new">
+                        <div class="platform-header">
+                            <h3 class="platform-name">Meu Namoro Exclusivo</h3>
+                            <span class="platform-badge badge-new">
+                                <i class="fas fa-sparkles"></i> Novo no Brasil
+                            </span>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="rating-stars">⭐</span>
+                            <span class="rating-value">8.8</span>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-wallet stat-icon"></i>
+                                <span class="stat-value">Grátis para entrar</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <span class="stat-value">1,5 dias até o primeiro encontro</span>
+                            </div>
+                        </div>
+                        <div class="potential-values">
+                            <h4 class="potential-title">Potencial Mensal</h4>
+                            <div class="potential-range"></div>
+                            <div class="potential-average"></div>
+                        </div>
+                        <a href="#" class="platform-cta">
+                            Criar Conta Grátis <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Universo Sugar Card -->
+                    <div class="platform-card">
+                        <div class="platform-header">
+                            <h3 class="platform-name">Universo Sugar</h3>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="rating-stars">⭐</span>
+                            <span class="rating-value">7.0</span>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-wallet stat-icon"></i>
+                                <span class="stat-value">R$ 199,99 para entrar</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <span class="stat-value">7 dias até o primeiro encontro</span>
+                            </div>
+                        </div>
+                        <div class="potential-values">
+                            <h4 class="potential-title">Potencial Mensal</h4>
+                            <div class="potential-range"></div>
+                            <div class="potential-average"></div>
+                        </div>
+                        <a href="#" class="platform-cta">
+                            Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Meu Rubi Card -->
+                    <div class="platform-card">
+                        <div class="platform-header">
+                            <h3 class="platform-name">Meu Rubi</h3>
+                        </div>
+                        <div class="platform-rating">
+                            <span class="rating-stars">⭐</span>
+                            <span class="rating-value">6.0</span>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-wallet stat-icon"></i>
+                                <span class="stat-value">R$ 189,99 para entrar</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-clock stat-icon"></i>
+                                <span class="stat-value">8 dias até o primeiro encontro</span>
+                            </div>
+                        </div>
+                        <div class="potential-values">
+                            <h4 class="potential-title">Potencial Mensal</h4>
+                            <div class="potential-range"></div>
+                            <div class="potential-average"></div>
+                        </div>
+                        <a href="#" class="platform-cta">
+                            Conhecer Plataforma <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/analytics.js"></script>
+    <script>
+        // Luxury Intro Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const introOverlay = document.querySelector('.intro-overlay');
+            const mainContent = document.querySelector('.main-content');
+            
+            // Show main content after animation
+            setTimeout(() => {
+                introOverlay.classList.add('fade-out');
+                mainContent.classList.add('visible');
+                
+                // Remove intro overlay from DOM after fade out
+                setTimeout(() => {
+                    introOverlay.remove();
+                }, 800); // Match the fade-out transition duration
+            }, 4000); // Increased to 4 seconds
+        });
+    </script>
+</body>
+</html> 
